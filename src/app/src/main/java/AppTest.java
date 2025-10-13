@@ -32,12 +32,8 @@ public class AppTest {
         brickTexture.loadTexture("others/bricks.png");
 
         Material mat = new Material();
-        mat.setVertexShader("others/vertex.glsl");
-        mat.setFragmentShader("others/fragment.glsl");
         mat.setTexture(grassTexture, "defaultTexture");
         Material mat2 = new Material();
-        mat2.setVertexShader("others/vertex.glsl");
-        mat2.setFragmentShader("others/fragment2.glsl");
         mat2.setTexture(brickTexture, "defaultTexture");
         
         Object obj = new Object(Mesh.Plane, mat);
@@ -49,6 +45,7 @@ public class AppTest {
         scene.appendObject(obj);
         scene.appendObject(brick);
         scene.processObjects();
+        mat.setUniformValue("textureUVTile", 32.0f);
         ambientLight.appendObject(obj);
         ambientLight.appendObject(brick);
         ambientLight.applyLighting();

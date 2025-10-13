@@ -15,6 +15,8 @@ public class Material {
     private String[] textureIds;
     private int totalTextures;
     public Material(){
+        this.vertexShaderSource = DefaultMaterials.vertexShader;
+        this.fragmentShaderSource = DefaultMaterials.fragmentShader;
         this.texture = new int[GL11.glGetInteger(GL20.GL_MAX_TEXTURE_IMAGE_UNITS)];
         this.textureIds = new String[GL11.glGetInteger(GL20.GL_MAX_TEXTURE_IMAGE_UNITS)];
         this.totalTextures = 0;
