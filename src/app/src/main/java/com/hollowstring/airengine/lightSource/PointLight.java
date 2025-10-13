@@ -5,7 +5,7 @@ import com.hollowstring.airengine.object.Object;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.*;
 
-public class PointLight implements LightSourcew{
+public class PointLight implements LightSource {
     public Vector3f position;
     public float r, g, b;
     public float lightEnergy;

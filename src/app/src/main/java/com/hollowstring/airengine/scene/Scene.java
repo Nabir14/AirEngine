@@ -5,20 +5,20 @@ import org.joml.Vector3f;
 import org.lwjgl.opengl.*;
 
 import com.hollowstring.airengine.camera.Camera;
-import com.hollowstring.airengine.lightSource.LightSourcew;
+import com.hollowstring.airengine.lightSource.LightSource;
 import com.hollowstring.airengine.object.Object;
 
 public class Scene {
     private float cR, cG, cB;
     private Camera activeCamera;
     private Object[] objectPoll;
-    private LightSourcew[] lightPool;
+    private LightSource[] lightPool;
     private int totalLights = 0;
     private int totalObjects = 0;
 
     public Scene(int maxObjects){
         objectPoll = new Object[maxObjects];
-        lightPool = new LightSourcew[maxObjects];
+        lightPool = new LightSource[maxObjects];
     }
 
     public Camera getActiveCamera() {
@@ -33,7 +33,7 @@ public class Scene {
         objectPoll[totalObjects] = obj;
         totalObjects++;
     }
-    public void appendLightSource(LightSourcew l){
+    public void appendLightSource(LightSource l){
         lightPool[totalLights] = l;
         totalLights++;
     }

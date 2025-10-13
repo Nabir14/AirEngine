@@ -3,7 +3,7 @@ package com.hollowstring.airengine.lightSource;
 import com.hollowstring.airengine.object.Object;
 import org.lwjgl.opengl.*;
 
-public class AmbientLight implements LightSourcew{
+public class AmbientLight implements LightSource {
     public float r, g, b;
     public float lightEnergy;
     public AmbientLight(float r, float g, float b, float lightEnergy){
