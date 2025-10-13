@@ -44,14 +44,11 @@ public class AppTest {
         
         scene.appendObject(obj);
         scene.appendObject(brick);
+        scene.appendLightSource(ambientLight);
+        scene.appendLightSource(pointLight);
         scene.processObjects();
+        
         mat.setUniformValue("textureUVTile", 32.0f);
-        ambientLight.appendObject(obj);
-        ambientLight.appendObject(brick);
-        ambientLight.applyLighting();
-        pointLight.appendObject(obj);
-        pointLight.appendObject(brick);
-        pointLight.applyLighting();
 
         boolean run = true;
         while(run){

@@ -5,16 +5,20 @@ import org.joml.Vector3f;
 import org.lwjgl.opengl.*;
 
 import com.hollowstring.airengine.camera.Camera;
+import com.hollowstring.airengine.lightSource.LightSourcew;
 import com.hollowstring.airengine.object.Object;
 
 public class Scene {
     private float cR, cG, cB;
     private Camera activeCamera;
     private Object[] objectPoll;
+    private LightSourcew[] lightPool;
+    private int totalLights = 0;
     private int totalObjects = 0;
 
     public Scene(int maxObjects){
         objectPoll = new Object[maxObjects];
+        lightPool = new LightSourcew[maxObjects];
     }
 
     public Camera getActiveCamera() {
@@ -29,13 +33,15 @@ public class Scene {
         objectPoll[totalObjects] = obj;
         totalObjects++;
     }
-    
+    public void appendLightSource(LightSourcew l){
+        lightPool[totalLights] = l;
+        totalLights++;
+    }
     public void setClearColor(float cR, float cG, float cB){
         this.cR = cR;
         this.cG = cG;
         this.cB = cB;
     }
-
     public void processObjects(){
         for(int i = 0; i < objectPoll.length; i++){
             if(objectPoll[i] == null){
@@ -67,6 +73,9 @@ public class Scene {
                     GL11.glBindTexture(GL11.GL_TEXTURE_2D, objectPoll[i].getMaterial().getTexture()[j]);
                     GL20.glUniform1i(GL20.glGetUniformLocation(objectPoll[i].getMaterial().getShaderProgram(), objectPoll[i].getMaterial().getTextureIds()[j]), j);
                 }
+            }
+            for(int j = 0; j < totalLights; j++){
+                lightPool[j].applyLighting(objectPoll[i]);
             }
             Matrix4f objectTranslation = new Matrix4f().identity();
             objectTranslation.translate(objectPoll[i].position);
