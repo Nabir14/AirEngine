@@ -17,7 +17,7 @@ public class AppTest {
         AirEngine engine = new AirEngine(800, 600, "Airdrop");
         engine.createWindow();
 
-        Scene scene = new Scene(64);
+        Scene scene = new Scene();
         Camera camera = new Camera(70, 800, 600, 0.1f, 1000.0f);
 
         scene.setActiveCamera(camera);
