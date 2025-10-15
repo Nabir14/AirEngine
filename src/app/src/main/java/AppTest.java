@@ -49,6 +49,8 @@ public class AppTest {
         scene.processObjects();
         
         mat.setUniformValue("textureUVTile", 32.0f);
+        brick.setHidden(true);
+        mat.setUniformValue("specularStrength", 0.5f);
 
         boolean run = true;
         while(run){
