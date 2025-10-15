@@ -83,13 +83,13 @@ public class Scene {
             objectTranslation.rotateZ((float)Math.toRadians(obj.rotation.z));
             objectTranslation.scale(obj.scale);
             Matrix4f cameraTranslation = new Matrix4f().identity();
-            cameraTranslation.lookAt(activeCamera.position, activeCamera.getTarget(), new Vector3f(0.0f, 1.0f, 0.0f));
+            cameraTranslation.lookAt(activeCamera.getPosition(), activeCamera.getTarget(), new Vector3f(0.0f, 1.0f, 0.0f));
             int transformLocation = GL20.glGetUniformLocation(obj.getMaterial().getShaderProgram(), "transform");
             int cameraTransformLocation = GL20.glGetUniformLocation(obj.getMaterial().getShaderProgram(), "cameraTransform");
             int projectionLocation = GL20.glGetUniformLocation(obj.getMaterial().getShaderProgram(), "projection");
             GL20.glUniformMatrix4fv(transformLocation, false, objectTranslation.get(new float[16]));
             GL20.glUniformMatrix4fv(cameraTransformLocation, false, cameraTranslation.get(new float[16]));
-            GL20.glUniformMatrix4fv(projectionLocation, false, activeCamera.projection.get(new float[16]));
+            GL20.glUniformMatrix4fv(projectionLocation, false, activeCamera.getProjection().get(new float[16]));
             GL30.glBindVertexArray(obj.getVAO());
             GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, obj.getMesh().length / 8);
         }

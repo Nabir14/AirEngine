@@ -2,7 +2,7 @@ import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL11;
 
 import com.hollowstring.airengine.*;
-import com.hollowstring.airengine.camera.Camera;
+import com.hollowstring.airengine.camera.*;
 import com.hollowstring.airengine.lightSource.*;
 import com.hollowstring.airengine.scene.*;
 import com.hollowstring.airengine.texture.*;
@@ -18,8 +18,8 @@ public class AppTest {
         engine.createWindow();
 
         Scene scene = new Scene();
-        Camera camera = new Camera(70, 800, 600, 0.1f, 1000.0f);
-
+        //PerspectiveCamera camera = new PerspectiveCamera(70, 800, 600, 0.1f, 1000.0f);
+        OrthographicCamera camera = new OrthographicCamera(32, 32, 0.1f, 1000.0f);
         scene.setActiveCamera(camera);
 
         camera.setPosition(-3.0f, 3.0f, 0.0f);
@@ -49,7 +49,7 @@ public class AppTest {
         scene.processObjects();
         
         mat.setUniformValue("textureUVTile", 32.0f);
-        brick.setHidden(true);
+        //brick.setHidden(true);
         mat.setUniformValue("specularStrength", 0.5f);
 
         boolean run = true;
