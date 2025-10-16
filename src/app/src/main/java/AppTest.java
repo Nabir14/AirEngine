@@ -64,21 +64,21 @@ public class AppTest {
             engine.processDefault();
             if(engine.checkKey(GLFW.GLFW_KEY_ESCAPE, GLFW.GLFW_PRESS) || GLFW.glfwWindowShouldClose(engine.getWindow())){
                 run = false;
-            }else if(engine.checkKey(GLFW.GLFW_KEY_W, GLFW.GLFW_PRESS)){
+            }else if(engine.checkKey(GLFW.GLFW_KEY_X, GLFW.GLFW_PRESS)){
                 engine.setDrawMode(GL11.GL_LINE);
             }else if(engine.checkKey(GLFW.GLFW_KEY_F, GLFW.GLFW_PRESS)){
                 engine.setDrawMode(GL11.GL_FILL);
-            }else if(engine.checkKey(GLFW.GLFW_KEY_UP, GLFW.GLFW_PRESS)){
+            }else if(engine.checkKey(GLFW.GLFW_KEY_W, GLFW.GLFW_PRESS)){
                 camera.position.add(camera.direction.normalize().mul(0.1f));
-            }else if(engine.checkKey(GLFW.GLFW_KEY_DOWN, GLFW.GLFW_PRESS)){
+            }else if(engine.checkKey(GLFW.GLFW_KEY_D, GLFW.GLFW_PRESS)){
                 camera.position.sub(camera.direction.normalize().mul(0.1f));
             }else if(engine.checkKey(GLFW.GLFW_KEY_LEFT, GLFW.GLFW_PRESS)){
                 camera.rotation.y -= 1.0f;
             }else if(engine.checkKey(GLFW.GLFW_KEY_RIGHT, GLFW.GLFW_PRESS)){
                 camera.rotation.y += 1.0f;
-            }else if(engine.checkKey(GLFW.GLFW_KEY_U, GLFW.GLFW_PRESS)){
+            }else if(engine.checkKey(GLFW.GLFW_KEY_UP, GLFW.GLFW_PRESS)){
                 camera.rotation.x += 1.0f;
-            }else if(engine.checkKey(GLFW.GLFW_KEY_D, GLFW.GLFW_PRESS)){
+            }else if(engine.checkKey(GLFW.GLFW_KEY_DOWN, GLFW.GLFW_PRESS)){
                 camera.rotation.x -= 1.0f;
             }
         }
