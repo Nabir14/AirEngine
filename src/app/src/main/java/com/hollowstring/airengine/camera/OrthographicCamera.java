@@ -8,8 +8,8 @@ public class OrthographicCamera implements Camera{
     public Vector3f rotation = new Vector3f(0.0f, 0.0f, 0.0f);
     public Vector3f direction = new Vector3f(0.0f, 0.0f, -1.0f);
     public Matrix4f projection = new Matrix4f();
-    public OrthographicCamera(int width, int height, float Near, float RenderDistance){
-        projection = new Matrix4f().ortho(0, width, 0, height, Near, RenderDistance);
+    public OrthographicCamera(float size, float Near, float RenderDistance){
+        projection = new Matrix4f().ortho(0.0f, size, 0.0f, size, Near, RenderDistance);
     }
     public Vector3f getRotation(){
         return this.rotation;
@@ -29,8 +29,9 @@ public class OrthographicCamera implements Camera{
     }
     public void setPosition(float x, float y, float z)
     {
-        this.position.x = x;
-        this.position.y = y;
-        this.position.z = z;
+        this.position = new Vector3f(x, y, z);
+    }
+    public void setRotation(float x, float y, float z) {
+        this.rotation = new Vector3f(x, y, z);
     }
 }

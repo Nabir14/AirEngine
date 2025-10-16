@@ -18,11 +18,15 @@ public class AppTest {
         engine.createWindow();
 
         Scene scene = new Scene();
-        //PerspectiveCamera camera = new PerspectiveCamera(70, 800, 600, 0.1f, 1000.0f);
-        OrthographicCamera camera = new OrthographicCamera(32, 32, 0.1f, 1000.0f);
+        PerspectiveCamera camera = new PerspectiveCamera(70, 800, 600, 0.1f, 1000.0f);
+        camera.setPosition(-3.0f, 3.0f, 0.0f);
+
+        //OrthographicCamera camera = new OrthographicCamera(16, 0.01f, 1000.0f);
+        //camera.setRotation(-15.0f, -45.0f, 0.0f);
+        //camera.setPosition(-16.0f, -3.0f, 4.5f);
+
         scene.setActiveCamera(camera);
 
-        camera.setPosition(-3.0f, 3.0f, 0.0f);
         AmbientLight ambientLight = new AmbientLight(0.3f, 0.5f, 0.7f, 1.0f);
         PointLight pointLight = new PointLight(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -37,7 +41,7 @@ public class AppTest {
         mat2.setTexture(brickTexture, "defaultTexture");
         
         Object obj = new Object(Mesh.Plane, mat);
-        obj.setSize(64.0f, 64.0f, 64.0f);
+        obj.setSize(64.0f, 1.0f, 64.0f);
         Object brick = new Object(Mesh.Cube, mat2);
         brick.setPosition(0.0f,1.0f, 0.0f);
         pointLight.setPosition(0.0f, 2.0f, 0.0f);
